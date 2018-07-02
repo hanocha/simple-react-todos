@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as React from 'react';
 import { IProps as ITodo } from './TodoItem';
-import { TodoList } from './TodoList';
+import { TodoListPage } from './TodoListPage';
 
 export interface IResponse {
   data: ITodo[],
@@ -27,7 +27,6 @@ export class TodoListContainer extends React.Component<any, any, any> {
   }
 
   public render() {
-    console.log(this.state)
-    return <TodoList todos={this.state.todos} />;
+    return <TodoListPage todos={this.state.todos} />;
   }
 };

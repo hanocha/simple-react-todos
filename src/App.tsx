@@ -7,8 +7,6 @@ export default class App extends React.Component {
     return (
       <Router>
         <React.Fragment>
-          <h1>Todo</h1>
-
           <Route exact={true} path="/" component={TodoListContainer} />
         </React.Fragment>
       </Router>
