@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { CreateTodoPage } from './CreateTodoPage';
+import { CreateTodoContainer } from './CreateTodoContainer';
 import { TodoListContainer } from './TodoListContainer';
 
 export default class App extends React.Component {
@@ -9,7 +9,7 @@ export default class App extends React.Component {
       <Router>
         <React.Fragment>
           <Route exact={true} path="/" component={TodoListContainer} />
-          <Route exact={true} path="/new" component={CreateTodoPage} />
+          <Route exact={true} path="/new" component={CreateTodoContainer} />
         </React.Fragment>
       </Router>
     );
