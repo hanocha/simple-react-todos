@@ -6,7 +6,7 @@ export default class App extends React.Component {
     return (
       <React.Fragment>
         <h1>Todo</h1>
-        <TodoItem />
+        <TodoItem text="test" />
       </React.Fragment>
     );
   }

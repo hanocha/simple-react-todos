@@ -1,5 +1,9 @@
 import * as React from 'react';
 
-export const TodoItem: React.ComponentType<any> = () => {
-  return <div>test</div>
+export interface IProps {
+  text: string,
 };
+
+export const TodoItem: React.ComponentType<IProps> = ({ text }) => (
+  <div>{text}</div>
+);
