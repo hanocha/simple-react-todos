@@ -1,25 +1,29 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 export class CreateTodoPage extends React.Component<any, any, any> {
-  public state = {}
+  public state = {
+    text: '',
+    title: '',
+  };
 
   public constructor(props: any) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  };
 
   public handleChange(e: any) {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value,
     });
-  }
+  };
 
   public handleSubmit(e: any) {
     console.log(this.state);
     e.preventDefault();
-  }
+  };
 
   public render() {
     return (
@@ -38,7 +42,9 @@ export class CreateTodoPage extends React.Component<any, any, any> {
             <input type="submit" value="create" />
           </div>
         </form>
+
+        <Link to="/">Back to top</Link>
       </div>
     );
-  }
+  };
 };
