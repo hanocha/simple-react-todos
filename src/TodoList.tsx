@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { TodoItem } from './TodoItem';
+import { IProps as ITodo, TodoItem } from './TodoItem';
 
 export interface IProps {
-  todos: string[],
+  todos: ITodo[],
 };
 
 export const TodoList: React.ComponentType<IProps> = ({ todos }) => (
   <ol>
     {todos.map((todo, i) => (
       <li key={i}>
-        <TodoItem text={todo} />
+        <TodoItem {...todo} />
       </li>
     ))}
   </ol>
