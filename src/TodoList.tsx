@@ -7,8 +7,8 @@ export interface IProps {
 
 export const TodoList: React.ComponentType<IProps> = ({ todos }) => (
   <ol>
-    {todos.map((todo, i) => (
-      <li key={i}>
+    {todos.map(todo => (
+      <li key={todo.id}>
         <TodoItem {...todo} />
       </li>
     ))}

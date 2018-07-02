@@ -7,7 +7,6 @@ export interface IResponse {
   data: ITodo[],
 };
 
-
 export class TodoListContainer extends React.Component<any, any, any> {
   public state = {
     todos: [],

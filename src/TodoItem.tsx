@@ -7,6 +7,9 @@ export interface IProps {
   created_at: string,
 };
 
-export const TodoItem: React.ComponentType<IProps> = ({ text }) => (
-  <div>{text}</div>
+export const TodoItem: React.ComponentType<IProps> = ({ title, text }) => (
+  <div>
+    <p>{title}</p>
+    <p>{text}</p>
+  </div>
 );
