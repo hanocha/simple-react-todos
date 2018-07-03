@@ -29,7 +29,7 @@ export const TodoForm: React.ComponentType<IProps> = (
       <input type="text" name="text" onChange={handleChange} value={text} />
     </div>
     <div>
-      <input type="submit" value="create" />
+      <input type="submit" value="submit" />
     </div>
   </form>
 );
