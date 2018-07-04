@@ -1,14 +1,20 @@
-import axios from 'axios';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { get } from '../api';
-import { IProps as ITodo, TodoItem } from '../components/TodoItem';
+import { get, remove } from '../api';
+import { TodoItem } from '../components/TodoItem';
+import { ITodo } from '../types';
 
 export interface IResponse {
   data: ITodo[];
 }
 
-export class TodoList extends React.Component<any, any, any> {
+interface IState {
+  todos: ITodo[];
+}
+
+const onClick = (todoId: string) => () => remove(todoId);
+
+export class TodoList extends React.Component<any, IState, any> {
   public state = {
     todos: [],
   };
@@ -26,7 +32,7 @@ export class TodoList extends React.Component<any, any, any> {
           {this.state.todos.map(todo => (
             // @ts-ignore
             <li key={todo.id}>
-              <TodoItem {...todo} />
+              <TodoItem {...todo} onClick={onClick(todo.id)} />
             </li>
           ))}
         </ol>
