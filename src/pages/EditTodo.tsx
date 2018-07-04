@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { TodoForm } from '../TodoForm';
+import { TodoForm } from '../components/TodoForm';
 
 export class EditTodo extends React.Component<any, any, any> {
   public state = {

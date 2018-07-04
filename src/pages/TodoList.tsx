@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { IProps as ITodo, TodoItem } from '../TodoItem';
+import { IProps as ITodo, TodoItem } from '../components/TodoItem';
 
 export interface IResponse {
   data: ITodo[];
