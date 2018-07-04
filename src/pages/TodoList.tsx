@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { get } from '../api';
 import { IProps as ITodo, TodoItem } from '../components/TodoItem';
 
 export interface IResponse {
@@ -13,14 +14,7 @@ export class TodoList extends React.Component<any, any, any> {
   };
 
   public componentDidMount() {
-    axios
-      .get('/todos', {
-        baseURL: 'https://virtserver.swaggerhub.com/kielze/TODO-API/1.0.0',
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-      .then((res: IResponse) => this.setState({ todos: res.data }));
+    get().then((res: IResponse) => this.setState({ todos: res.data }));
   }
 
   public render() {

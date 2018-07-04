@@ -1,6 +1,6 @@
-import axios from 'axios';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { post } from '../api';
 import { TodoForm } from '../components/TodoForm';
 
 export class CreateTodo extends React.Component<any, any, any> {
@@ -23,19 +23,9 @@ export class CreateTodo extends React.Component<any, any, any> {
   }
 
   public handleSubmit(e: any) {
-    console.log(this.state);
-    axios
-      .post('/todos', this.state, {
-        baseURL: 'https://virtserver.swaggerhub.com/kielze/TODO-API/1.0.0',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      .then(res => {
-        console.log(res);
-        this.props.history.push('/');
-      });
+    post(this.state).then(res => {
+      this.props.history.push('/');
+    });
     e.preventDefault();
   }
 
