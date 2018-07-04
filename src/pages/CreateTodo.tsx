@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as React from 'react';
-import { CreateTodoPage } from '../CreateTodoPage';
+import { Link } from 'react-router-dom';
+import { TodoForm } from '../TodoForm';
 
 export class CreateTodo extends React.Component<any, any, any> {
   public state = {
@@ -39,12 +40,24 @@ export class CreateTodo extends React.Component<any, any, any> {
   }
 
   public render() {
+    const {
+      values: { text, title },
+    } = this.props;
     return (
-      <CreateTodoPage
-        values={this.state}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-      />
+      <div>
+        <h1>Create todo</h1>
+        <TodoForm
+          {...{
+            handleChange: this.handleChange,
+            handleSubmit: this.handleSubmit,
+            values: {
+              text,
+              title,
+            },
+          }}
+        />
+        <Link to="/">Back to top</Link>
+      </div>
     );
   }
 }
