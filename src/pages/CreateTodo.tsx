@@ -1,8 +1,8 @@
 import axios from 'axios';
 import * as React from 'react';
-import { CreateTodoPage } from './CreateTodoPage';
+import { CreateTodoPage } from '../CreateTodoPage';
 
-export class CreateTodoContainer extends React.Component<any, any, any> {
+export class CreateTodo extends React.Component<any, any, any> {
   public state = {
     text: '',
     title: '',
@@ -12,33 +12,31 @@ export class CreateTodoContainer extends React.Component<any, any, any> {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  };
+  }
 
   public handleChange(e: any) {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value,
     });
-  };
+  }
 
   public handleSubmit(e: any) {
     console.log(this.state);
-    axios.post(
-      "/todos",
-      this.state,
-      {
-        baseURL: "https://virtserver.swaggerhub.com/kielze/TODO-API/1.0.0",
+    axios
+      .post('/todos', this.state, {
+        baseURL: 'https://virtserver.swaggerhub.com/kielze/TODO-API/1.0.0',
         headers: {
-          'Accept': 'application/json',
+          Accept: 'application/json',
           'Content-Type': 'application/json',
         },
-      },
-    ).then(res => {
-      console.log(res);
-      this.props.history.push('/');
-    });
+      })
+      .then(res => {
+        console.log(res);
+        this.props.history.push('/');
+      });
     e.preventDefault();
-  };
+  }
 
   public render() {
     return (
@@ -48,5 +46,5 @@ export class CreateTodoContainer extends React.Component<any, any, any> {
         handleSubmit={this.handleSubmit}
       />
     );
-  };
-};
+  }
+}
