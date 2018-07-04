@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as React from 'react';
-import { EditTodoPage } from '../EditTodoPage';
+import { Link } from 'react-router-dom';
+import { TodoForm } from '../TodoForm';
 
 export class EditTodo extends React.Component<any, any, any> {
   public state = {
@@ -59,11 +60,20 @@ export class EditTodo extends React.Component<any, any, any> {
 
   public render() {
     return (
-      <EditTodoPage
-        values={this.state}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-      />
+      <div>
+        <h1>Edit todo</h1>
+        <TodoForm
+          {...{
+            handleChange: this.handleChange,
+            handleSubmit: this.handleSubmit,
+            values: {
+              text: this.state.text,
+              title: this.state.title,
+            },
+          }}
+        />
+        <Link to="/">Back to top</Link>
+      </div>
     );
   }
 }

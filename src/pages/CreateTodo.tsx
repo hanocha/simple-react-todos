@@ -40,9 +40,6 @@ export class CreateTodo extends React.Component<any, any, any> {
   }
 
   public render() {
-    const {
-      values: { text, title },
-    } = this.props;
     return (
       <div>
         <h1>Create todo</h1>
@@ -51,8 +48,8 @@ export class CreateTodo extends React.Component<any, any, any> {
             handleChange: this.handleChange,
             handleSubmit: this.handleSubmit,
             values: {
-              text,
-              title,
+              text: this.state.text,
+              title: this.state.title,
             },
           }}
         />
