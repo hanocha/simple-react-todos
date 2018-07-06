@@ -1,19 +1,15 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { CreateTodoContainer } from './CreateTodoContainer';
-import { EditTodoContainer } from './EditTodoContainer';
-import { TodoListContainer } from './TodoListContainer';
+import { CreateTodo } from './pages/CreateTodo';
+import { EditTodo } from './pages/EditTodo';
+import { TodoList } from './pages/TodoList';
 
-export default class App extends React.Component {
-  public render() {
-    return (
-      <Router>
-        <React.Fragment>
-          <Route exact={true} path="/" component={TodoListContainer} />
-          <Route exact={true} path="/new" component={CreateTodoContainer} />
-          <Route path="/todos/:id" component={EditTodoContainer} />
-        </React.Fragment>
-      </Router>
-    );
-  };
-};
+export const App = () => (
+  <Router>
+    <div>
+      <Route exact={true} path="/" component={TodoList} />
+      <Route exact={true} path="/new" component={CreateTodo} />
+      <Route path="/todos/:id" component={EditTodo} />
+    </div>
+  </Router>
+);
