@@ -1,12 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ITodo } from '../types';
 
-interface IProps extends ITodo {
-  onClick: (_: React.SyntheticEvent) => void;
-}
-
-export const TodoItem = ({ id, title, text, onClick }: IProps) => (
+export const TodoItem = ({ id, title, text, onClick }) => (
   <div>
     <p>{title}</p>
     <p>{text}</p>

@@ -1,15 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 
-export interface IProps {
-  values: {
-    title: string,
-    text: string,
-  },
-  handleChange: any,
-  handleSubmit: any,
-};
-
-export const TodoForm: React.ComponentType<IProps> = (
+export const TodoForm = (
   {
     values: {
       title,
