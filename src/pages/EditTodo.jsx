@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { get, put } from '../api';
+import { show, update } from '../api';
 import { TodoForm } from '../components/TodoForm';
 
 export class EditTodo extends React.Component {
@@ -16,7 +16,7 @@ export class EditTodo extends React.Component {
   }
 
   componentDidMount() {
-    get().then(res => {
+    show().then(res => {
       this.setState({
         text: res.data.text,
         title: res.data.title,
@@ -34,7 +34,7 @@ export class EditTodo extends React.Component {
   handleSubmit(e) {
     const todoId = this.props.match.params.id;
     const requestBody = this.state;
-    put(todoId, requestBody).then(res => {
+    update(todoId, requestBody).then(res => {
       this.props.history.push('/');
     });
     e.preventDefault();

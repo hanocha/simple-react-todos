@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { get, remove } from '../api';
+import { index, destroy } from '../api';
 import { TodoItem } from '../components/TodoItem';
 
-const onClick = todoId => () => remove(todoId);
+const onClick = todoId => () => destroy(todoId);
 
 export class TodoList extends React.Component {
   state = {
@@ -11,7 +11,7 @@ export class TodoList extends React.Component {
   };
 
   componentDidMount() {
-    get().then(res => this.setState({ todos: res.data }));
+    index().then(res => this.setState({ todos: res.data }));
   }
 
   render() {

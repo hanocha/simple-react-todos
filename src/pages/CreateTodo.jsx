@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { post } from '../api';
+import { create } from '../api';
 import { TodoForm } from '../components/TodoForm';
 
 export class CreateTodo extends React.Component {
@@ -23,7 +23,7 @@ export class CreateTodo extends React.Component {
   }
 
   handleSubmit(e) {
-    post(this.state).then(res => {
+    create(this.state).then(res => {
       this.props.history.push('/');
     });
     e.preventDefault();
