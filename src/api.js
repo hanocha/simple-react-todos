@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const BASE_URL = 'https://virtserver.swaggerhub.com/kielze/TODO-API/1.0.0';
 
 const defaultHeaders = {
@@ -7,22 +5,24 @@ const defaultHeaders = {
   'Content-Type': 'application/json',
 };
 
-const defaultParams = {
-  baseURL: BASE_URL,
-  headers: defaultHeaders,
-};
-
 export const index = () =>
-  axios.get('/todos', defaultParams);
-
-export const show = todoId =>
-  axios.get(`/todos/${todoId}`, defaultParams);
-
-export const update = (todoId, requestBody) =>
-  axios.put(`/todos/${todoId}`, requestBody, defaultParams);
+  fetch(`${BASE_URL}/todos`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: defaultHeaders,
+  }).then(res => res.json());
 
 export const create = requestBody =>
-  axios.post('/todos', requestBody, defaultParams);
+  fetch(`${BASE_URL}/todos`, {
+    method: 'POST',
+    mode: 'cors',
+    headers: defaultHeaders,
+    body: JSON.stringify(requestBody),
+  }).then(res => res.json());
 
 export const destroy = todoId =>
-  axios.delete(`/todos/${todoId}`, defaultParams);
+  fetch(`${BASE_URL}/todos/${todoId}`, {
+    method: 'DELETE',
+    mode: 'cors',
+    headers: defaultHeaders,
+  }).then(res => res.json());
