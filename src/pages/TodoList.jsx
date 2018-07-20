@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { index, destroy } from '../api';
 import { TodoItem } from '../components/TodoItem';
 
@@ -18,7 +17,6 @@ export class TodoList extends React.Component {
     return (
       <div>
         <h1>Todo</h1>
-        <Link to="/new">Create</Link>
         <ol>
           {this.state.todos.map(todo => (
             <li key={todo.id}>

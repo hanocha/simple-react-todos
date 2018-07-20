@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { show, update } from '../api';
 import { TodoForm } from '../components/TodoForm';
 
@@ -54,7 +53,6 @@ export class EditTodo extends React.Component {
             },
           }}
         />
-        <Link to="/">Back to top</Link>
       </div>
     );
   }

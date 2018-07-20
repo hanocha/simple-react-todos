@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { create } from '../api';
 import { TodoForm } from '../components/TodoForm';
 
@@ -43,7 +42,6 @@ export class CreateTodo extends React.Component {
             },
           }}
         />
-        <Link to="/">Back to top</Link>
       </div>
     );
   }
