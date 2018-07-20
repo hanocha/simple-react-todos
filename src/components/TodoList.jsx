@@ -1,10 +1,8 @@
 import React from 'react';
+import TodoItem from './TodoItem';
 import { index, destroy } from '../api';
-import { TodoItem } from '../components/TodoItem';
 
-const onClick = todoId => () => destroy(todoId);
-
-export class TodoList extends React.Component {
+class TodoList extends React.Component {
   state = {
     todos: [],
   };
@@ -20,7 +18,7 @@ export class TodoList extends React.Component {
         <ol>
           {this.state.todos.map(todo => (
             <li key={todo.id}>
-              <TodoItem {...todo} onClick={onClick(todo.id)} />
+              <TodoItem {...todo} onClick={() => destroy(todo.id)} />
             </li>
           ))}
         </ol>
@@ -28,3 +26,5 @@ export class TodoList extends React.Component {
     );
   }
 }
+
+export default TodoList;

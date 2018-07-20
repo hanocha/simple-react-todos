@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const TodoItem = ({ id, title, text, onClick }) => (
+const TodoItem = ({ id, title, text, onClick }) => (
   <div>
     <p>{title}</p>
     <p>{text}</p>
@@ -9,3 +9,5 @@ export const TodoItem = ({ id, title, text, onClick }) => (
     </div>
   </div>
 );
+
+export default TodoItem;
