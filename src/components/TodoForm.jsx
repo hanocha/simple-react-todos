@@ -1,36 +1,29 @@
 import React from 'react';
 import { create } from '../api';
 
-class TodoList extends React.Component {
+class TodoForm extends React.Component {
   state = {
     text: '',
     title: '',
   };
 
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(e) {
+  handleChange = e => {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value,
     });
-  }
+  };
 
-  handleSubmit(e) {
+  handleSubmit = () => {
     create(this.state).then(res => {
-      this.props.history.push('/');
+      window.history.go();
     });
-    e.preventDefault();
-  }
+  };
 
   render() {
     return (
       <div>
-        <h1>Create todo</h1>
+        <h3>Todo Form</h3>
         <form onSubmit={e => this.handleSubmit(e)}>
           <div>
             <label>title:</label>
@@ -59,4 +52,4 @@ class TodoList extends React.Component {
   }
 }
 
-export default TodoList;
+export default TodoForm;

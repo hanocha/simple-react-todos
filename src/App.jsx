@@ -3,7 +3,7 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
 const App = () => (
-  <div>
+  <div className="app">
     <TodoForm />
     <TodoList />
   </div>

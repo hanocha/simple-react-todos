@@ -12,13 +12,20 @@ class TodoList extends React.Component {
   }
 
   render() {
+    const todos = this.state.todos;
+    const handleClick = () => destroy(todo.id);
     return (
       <div>
-        <h1>Todo</h1>
+        <h3>Todo List</h3>
         <ol>
-          {this.state.todos.map(todo => (
+          {todos.map(todo => (
             <li key={todo.id}>
-              <TodoItem {...todo} onClick={() => destroy(todo.id)} />
+              <TodoItem
+                id={todo.id}
+                title={todo.title}
+                text={todo.text}
+                onClick={handleClick}
+              />
             </li>
           ))}
         </ol>
