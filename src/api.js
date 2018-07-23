@@ -1,4 +1,4 @@
-const BASE_URL = 'https://virtserver.swaggerhub.com/kielze/TODO-API/1.0.0';
+const BASE_URL = 'http://localhost:3000';
 
 const defaultHeaders = {
   Accept: 'application/json',

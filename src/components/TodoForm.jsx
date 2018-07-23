@@ -15,7 +15,7 @@ class TodoForm extends React.Component {
   };
 
   handleSubmit = () => {
-    create(this.state).then(res => {
+    create(this.state).then(() => {
       window.history.go();
     });
   };

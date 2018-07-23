@@ -8,12 +8,15 @@ class TodoList extends React.Component {
   };
 
   componentDidMount() {
-    index().then(res => this.setState({ todos: res.data }));
+    index().then(res => this.setState({ todos: res }));
   }
+
+  handleClick = todoId => {
+    destroy(todoId).then(() => window.history.go());
+  };
 
   render() {
     const todos = this.state.todos;
-    const handleClick = () => destroy(todo.id);
     return (
       <div>
         <h3>Todo List</h3>
@@ -24,7 +27,7 @@ class TodoList extends React.Component {
                 id={todo.id}
                 title={todo.title}
                 text={todo.text}
-                onClick={handleClick}
+                onClick={() => this.handleClick(todo.id)}
               />
             </li>
           ))}
